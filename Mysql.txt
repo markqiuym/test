@@ -1,0 +1,20 @@
+net start mysql1
+net stop mysql1
+
+mysqld --initialize-insecure --user=mysql1
+
+//mysqld --initialize --console
+
+mysql -uroot -p
+
+use mysql
+
+ALTER mysql.user 'root'@'localhost' IDENTIFIED BY '123';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY'12345678';
+COMMIT;
+
+flush privileges;
+
+时区修改：
+show variables like'%time_zone';
+set global time_zone = '+8:00';  
